@@ -3,7 +3,7 @@ import './App.css'
 import { Formik, Form } from 'formik'
 import axios from 'axios'
 import CircularProgress from '@mui/material/CircularProgress';
-
+axios.defaults.withCredentials=true;
 const initialValues={
   picture: "",
 };

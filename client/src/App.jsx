@@ -1,22 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as yup from "yup";
+import { Formik, Form } from 'formik'
 import axios from 'axios'
 import CircularProgress from '@mui/material/CircularProgress';
-// const postSchema=yup.object().shape({
-//   picture: yup
-//     .mixed()
-//     .required("required")
-//     .test("fileSize", "File size is too large", (value) => {
-//       return value.size<=5000000; //MAX FILE SIZE
-//     })
-//     .test("fileType", "Unsupported File Format", (value) => {
-//       return (
-//         ["image/jpeg", "image/png", "image/jpg"].includes(value.type)
-//       );
-//     }),
-// });
 
 const initialValues={
   picture: "",

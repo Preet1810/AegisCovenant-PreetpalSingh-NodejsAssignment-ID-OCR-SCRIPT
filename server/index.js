@@ -11,7 +11,7 @@ const app=express();  // creating an instance of express
 app.use(express.static(path.join(__dirname, 'uploads')));  // serving static files from the uploads folder
 
 app.use(cors({   // enabling cors
-    origin: 'http://localhost:5173',
+    origin: 'https://id-ocr-script-aegiscovenant.netlify.app',
     credentials: true,
     optionsSuccessStatus: 200
 }));

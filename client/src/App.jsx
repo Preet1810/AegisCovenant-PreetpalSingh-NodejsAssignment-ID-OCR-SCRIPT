@@ -48,7 +48,7 @@ const App=() => {
     <div>
 
       <h1 className='mainH'>INDIAN ID OCR SCRIPT</h1>
-
+      <p>When uploading an image, please ensure that it is well-cropped and clear. Please be patient and allow up to 3-4 minutes for the server to respond as it has limited resources.</p>
       <div className="container">
         <div className="box">
           <div className="card">

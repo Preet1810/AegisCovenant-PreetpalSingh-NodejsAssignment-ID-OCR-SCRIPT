@@ -18,6 +18,7 @@ const App=() => {
     setIsLoading(true);
     const formData=new FormData();
     formData.append("picture", values.picture);
+
     axios.post(`https://nodejsassignment-id-ocr.onrender.com/imagetotext`, formData, {
 
       headers: {

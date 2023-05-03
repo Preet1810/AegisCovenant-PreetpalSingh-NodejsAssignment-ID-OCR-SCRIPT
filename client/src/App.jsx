@@ -19,7 +19,7 @@ const App=() => {
     const formData=new FormData();
     formData.append("picture", values.picture);
 
-    axios.post(`https://nodejsassignment-id-ocr.onrender.com/imagetotext`, formData, {
+    axios.post(`https://id-ocr-script-server.onrender.com/imagetotext`, formData, {
 
       headers: {
         "Content-Type": "multipart/form-data",

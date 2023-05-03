@@ -104,7 +104,7 @@ app.post('/imagetotext', upload.single('picture'), async (req, res) => {
                 const panreg=/\b(?:INCOME|TAX|Permanent)\b/;
                 result=panreg.test(text)? panToText(text):adharToText(text);
                 res.status(201).json({ result, imageToText: text });
-                deleteFiles([req.file.path, "uploads/edited-image.png"]);
+                // deleteFiles([req.file.path, "uploads/edited-image.png"]);
             })
             .catch((error) => {
                 res.status(500).json({ message: error.message });

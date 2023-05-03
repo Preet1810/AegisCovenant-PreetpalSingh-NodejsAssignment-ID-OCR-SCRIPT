@@ -10,7 +10,7 @@ const app=express();  // creating an instance of express
 
 app.use(express.static(path.join(__dirname, 'uploads')));  // serving static files from the uploads folder
 app.use(cors({   // enabling cors
-    origin: 'https://id-ocr-script-aegiscovenant.netlify.app',
+    origin: 'https://id-ocr-script-preet.netlify.app',  //
     credentials: true,
     optionsSuccessStatus: 200
 }));
@@ -66,13 +66,15 @@ const panToText=(text) => {                    // function to extract data from 
     };
 };
 
-const deleteFile=(file) => {
-    fs.unlink(file, (err) => {             // function to delete a file from the file system
-        if (err) {
-            console.error(err);
-        } else {
-            console.log("File deleted successfully!");
-        }
+const deleteFiles=(files) => {      //removing uploaded file
+    files.forEach(file => {
+        fs.unlink(file, (err) => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(`File ${file} deleted successfully!`);
+            }
+        });
     });
 };
 
@@ -101,7 +103,7 @@ app.post('/imagetotext', upload.single('picture'), async (req, res) => {
                 let result;
                 const panreg=/\b(?:INCOME|TAX|Permanent)\b/;
                 result=panreg.test(text)? panToText(text):adharToText(text);
-                deleteFile(req.file.path);
+                deleteFiles([req.file.path, "uploads/edited-image.png"]);
                 res.status(201).json({ result, imageToText: text });
             })
             .catch((error) => {
